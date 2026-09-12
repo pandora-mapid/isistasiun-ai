@@ -1,0 +1,133 @@
+{
+  "_meta": {
+    "sumber": "data_orang/ (13 foto tally-counter) + koordinat lapangan",
+    "tipe": [
+      "entrance",
+      "gerai",
+      "ruko",
+      "potensi_toko"
+    ]
+  },
+  "data": [
+    {
+      "id": "pt_1",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Kios atas 1",
+      "lat": -6.2024901,
+      "lon": 106.8236287
+    },
+    {
+      "id": "pt_2",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Kios atas 2",
+      "lat": -6.2024691,
+      "lon": 106.8235871
+    },
+    {
+      "id": "pt_3",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Kios atas 3",
+      "lat": -6.2024697,
+      "lon": 106.82346
+    },
+    {
+      "id": "pt_4",
+      "station": "Sudirman",
+      "type": "entrance",
+      "label": "Pintu atas",
+      "lat": -6.2022544,
+      "lon": 106.8233293
+    },
+    {
+      "id": "pt_5",
+      "station": "Sudirman",
+      "type": "entrance",
+      "label": "Pintu C1",
+      "lat": -6.2027007,
+      "lon": 106.8246516
+    },
+    {
+      "id": "pt_6",
+      "station": "Manggarai",
+      "type": "gerai",
+      "label": "FamilyMart",
+      "lat": -6.2102422,
+      "lon": 106.8502918
+    },
+    {
+      "id": "pt_7",
+      "station": "Manggarai",
+      "type": "gerai",
+      "label": "Indomaret",
+      "lat": -6.2100029,
+      "lon": 106.8502013
+    },
+    {
+      "id": "pt_8",
+      "station": "Manggarai",
+      "type": "potensi_toko",
+      "label": "Potensi toko 1",
+      "lat": -6.2102975,
+      "lon": 106.8506663
+    },
+    {
+      "id": "pt_9",
+      "station": "Manggarai",
+      "type": "potensi_toko",
+      "label": "Potensi toko 2",
+      "lat": -6.2104435,
+      "lon": 106.8508145
+    },
+    {
+      "id": "pt_10",
+      "station": "Manggarai",
+      "type": "potensi_toko",
+      "label": "Potensi toko 3",
+      "lat": -6.2105242,
+      "lon": 106.8507756
+    },
+    {
+      "id": "pt_11",
+      "station": "Manggarai",
+      "type": "potensi_toko",
+      "label": "Potensi toko 4",
+      "lat": -6.2104545,
+      "lon": 106.8508085
+    },
+    {
+      "id": "pt_12",
+      "station": "Manggarai",
+      "type": "potensi_toko",
+      "label": "Potensi toko 5",
+      "lat": -6.2105015,
+      "lon": 106.8508356
+    },
+    {
+      "id": "pt_13",
+      "station": "Manggarai",
+      "type": "ruko",
+      "label": "Ruko depan 1",
+      "lat": -6.2097402,
+      "lon": 106.8502965
+    },
+    {
+      "id": "pt_14",
+      "station": "Manggarai",
+      "type": "ruko",
+      "label": "Ruko depan 2",
+      "lat": -6.2096379,
+      "lon": 106.8504967
+    },
+    {
+      "id": "pt_15",
+      "station": "Manggarai",
+      "type": "ruko",
+      "label": "Ruko depan 3",
+      "lat": -6.2100542,
+      "lon": 106.8510737
+    }
+  ]
+}

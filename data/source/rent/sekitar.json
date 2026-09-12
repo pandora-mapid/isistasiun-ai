@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "sumber": "Listing pasar 99.co (sampel, bukan sensus)",
+    "tanggal": "2026-09",
+    "catatan": [
+      "Sewa kawasan SEKITAR stasiun (bukan in-station). In-station Manggarai ada di manggarai-instation.json; Sudirman in-station tak tersedia.",
+      "Normalisasi Rp/m²/tahun pakai luas bangunan (LB). Sebagian listing quote LT — cek saat finalisasi.",
+      "Koordinat null (level area) — listing tak selalu punya titik presisi; isi manual bila perlu untuk peta.",
+      "Plot per-titik, jangan dirata-rata."
+    ],
+    "sumber_url": [
+      "https://www.99.co/id/sewa/komersial/jakarta-pusat/dekat-stasiun-sudirman",
+      "https://www.99.co/id/sewa/ruko/jakarta-selatan/dekat-stasiun-manggarai",
+      "https://www.99.co/id/sewa/ruko/jakarta-selatan/dekat-stasiun-tebet"
+    ]
+  },
+  "data": [
+    {
+      "id": "mkt_1",
+      "area": "Sudirman/Dukuh Atas",
+      "label": "Komersial Tanah Abang (~2mnt ke Sudirman/MRT)",
+      "sewa_rp": 1500000000,
+      "luas_m2": 500,
+      "rp_per_m2_thn": 3000000,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_2",
+      "area": "Sudirman/Dukuh Atas",
+      "label": "Ruko pusat bisnis",
+      "sewa_rp": 75000000,
+      "luas_m2": 130,
+      "rp_per_m2_thn": 576923,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_3",
+      "area": "Sudirman/Dukuh Atas",
+      "label": "Komersial dekat Dukuh Atas BNI",
+      "sewa_rp": 80000000,
+      "luas_m2": null,
+      "rp_per_m2_thn": null,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_4",
+      "area": "Manggarai",
+      "label": "Ruko strategis Manggarai",
+      "sewa_rp": 280000000,
+      "luas_m2": 650,
+      "rp_per_m2_thn": 430769,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_5",
+      "area": "Manggarai/Tebet",
+      "label": "Ruko Tebet",
+      "sewa_rp": 275000000,
+      "luas_m2": 330,
+      "rp_per_m2_thn": 833333,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_6",
+      "area": "Manggarai/Tebet",
+      "label": "Ruko Crown Palace (Soepomo, Tebet)",
+      "sewa_rp": 365000000,
+      "luas_m2": 238,
+      "rp_per_m2_thn": 1533613,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_7",
+      "area": "Manggarai/Tebet",
+      "label": "Ruko Tebet",
+      "sewa_rp": 325000000,
+      "luas_m2": 243,
+      "rp_per_m2_thn": 1337449,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    },
+    {
+      "id": "mkt_8",
+      "area": "Manggarai/Tebet",
+      "label": "Ruko Tebet",
+      "sewa_rp": 230000000,
+      "luas_m2": 110,
+      "rp_per_m2_thn": 2090909,
+      "lat": null,
+      "lon": null,
+      "source": "market_listing_99co"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_1",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Kios atas 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8236287,
+          -6.2024901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_2",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Kios atas 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8235871,
+          -6.2024691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_3",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Kios atas 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82346,
+          -6.2024697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_4",
+        "station": "Sudirman",
+        "type": "entrance",
+        "label": "Pintu atas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8233293,
+          -6.2022544
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_5",
+        "station": "Sudirman",
+        "type": "entrance",
+        "label": "Pintu C1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8246516,
+          -6.2027007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_6",
+        "station": "Manggarai",
+        "type": "gerai",
+        "label": "FamilyMart"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8502918,
+          -6.2102422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_7",
+        "station": "Manggarai",
+        "type": "gerai",
+        "label": "Indomaret"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8502013,
+          -6.2100029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_8",
+        "station": "Manggarai",
+        "type": "potensi_toko",
+        "label": "Potensi toko 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8506663,
+          -6.2102975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_9",
+        "station": "Manggarai",
+        "type": "potensi_toko",
+        "label": "Potensi toko 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8508145,
+          -6.2104435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_10",
+        "station": "Manggarai",
+        "type": "potensi_toko",
+        "label": "Potensi toko 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8507756,
+          -6.2105242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_11",
+        "station": "Manggarai",
+        "type": "potensi_toko",
+        "label": "Potensi toko 4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8508085,
+          -6.2104545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_12",
+        "station": "Manggarai",
+        "type": "potensi_toko",
+        "label": "Potensi toko 5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8508356,
+          -6.2105015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_13",
+        "station": "Manggarai",
+        "type": "ruko",
+        "label": "Ruko depan 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8502965,
+          -6.2097402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_14",
+        "station": "Manggarai",
+        "type": "ruko",
+        "label": "Ruko depan 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8504967,
+          -6.2096379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_15",
+        "station": "Manggarai",
+        "type": "ruko",
+        "label": "Ruko depan 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8510737,
+          -6.2100542
+        ]
+      }
+    }
+  ]
+}

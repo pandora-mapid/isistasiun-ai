@@ -1,0 +1,98 @@
+[
+  {
+    "blokid": "75153818818957567",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI 50,09M (OUTLET CFC)",
+    "luas_m2": 50.09,
+    "sewa_rp": 1577342000,
+    "rp_per_m2_thn": 31490158,
+    "rented": true,
+    "lat": -6.209931205497052,
+    "lon": 106.85023123473187,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-08-21 06:36:04"
+  },
+  {
+    "blokid": "75153818819205543",
+    "nama": "SPACE EMPLASEMEN STASIUN BESAR MANGGARAI 34,20M (FAMILY MART)",
+    "luas_m2": 34.2,
+    "sewa_rp": 250000000,
+    "rp_per_m2_thn": 7309942,
+    "rented": true,
+    "lat": -6.209867210204161,
+    "lon": 106.85000592918202,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-08-21 04:58:14"
+  },
+  {
+    "blokid": "75153818818422713",
+    "nama": "SPACE STASIUN MANGGARAI 36M (OUTLET INDOMARTE PINTU TIMUR)",
+    "luas_m2": 36,
+    "sewa_rp": 200000000,
+    "rp_per_m2_thn": 5555556,
+    "rented": true,
+    "lat": -6.209774277055045,
+    "lon": 106.85015876559434,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-08-21 04:43:34"
+  },
+  {
+    "blokid": "75153818833728806",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI 84,30M (TOTO EXPRESS)",
+    "luas_m2": 84.3,
+    "sewa_rp": 150000000,
+    "rp_per_m2_thn": 1779359,
+    "rented": true,
+    "lat": -6.209288317907934,
+    "lon": 106.84975628276572,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-08-21 04:23:01"
+  },
+  {
+    "blokid": "75153818843382536",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI NO 5 49,5M",
+    "luas_m2": 49.5,
+    "sewa_rp": 594000000,
+    "rp_per_m2_thn": 12000000,
+    "rented": false,
+    "lat": -6.2093009274974165,
+    "lon": 106.84980529761327,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-04-10 02:56:16"
+  },
+  {
+    "blokid": "75153818843418498",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI NO 6 49,5M",
+    "luas_m2": 49.5,
+    "sewa_rp": 594000000,
+    "rp_per_m2_thn": 12000000,
+    "rented": false,
+    "lat": -6.209331051895262,
+    "lon": 106.84982124612299,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-04-10 02:55:44"
+  },
+  {
+    "blokid": "75153818843418475",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI NO 7 49,5M",
+    "luas_m2": 49.5,
+    "sewa_rp": 594000000,
+    "rp_per_m2_thn": 12000000,
+    "rented": false,
+    "lat": -6.209361176291391,
+    "lon": 106.8498148667191,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-04-10 02:54:50"
+  },
+  {
+    "blokid": "75153818843418165",
+    "nama": "SPACE EMPLASEMEN STASIUN MANGGARAI NO 8  49,5M",
+    "luas_m2": 49.5,
+    "sewa_rp": 594000000,
+    "rp_per_m2_thn": 12000000,
+    "rented": false,
+    "lat": -6.209391300685802,
+    "lon": 106.8498419791856,
+    "area": "Daop 1 Jakarta",
+    "updated": "2026-04-10 02:28:02"
+  }
+]

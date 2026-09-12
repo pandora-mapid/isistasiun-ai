@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "sumber": "data_orang/ (13 foto tally-counter) + koordinat lapangan",
+    "asumsi": {
+      "angka_gerai": "MASUK",
+      "C": 0.95,
+      "beli_est": "round(0.95*masuk)",
+      "E": "masuk/lewat (null bila tak tersedia)"
+    },
+    "slot": {
+      "catatan": "2 slot terukur (pagi/sore) + siang MOCK. Jam: {\"Manggarai\":{\"pagi\":\"08.00\",\"sore\":\"17.30\",\"siang\":\"~12.00 (mock)\"},\"Sudirman\":{\"pagi\":\"08.15-08.30\",\"sore\":\"17.10\",\"siang\":\"~12.00 (mock)\"}}"
+    },
+    "source_flags": {
+      "measured": "terukur lapangan",
+      "mock_rush_hour": "lewat Sudirman pagi diisi estimasi rush-hour (frontage ~324)",
+      "partial_mock": "masuk real, lewat mock",
+      "mock": "siang sintetis 0.45×rata pagi/sore — tak disurvei, confidence low"
+    },
+    "caveat": [
+      "Slot day/slot diinfer dari jam pasti + pola (clock screenshot = waktu tangkap, bukan observasi) — tim boleh koreksi.",
+      "Sudirman pagi lewat tak terhitung (padat) → mock rush-hour; beli/masuk-nya tetap real.",
+      "Siang = MOCK untuk kelengkapan UI; WAJIB ditandai \"estimasi (tidak disurvei)\" & confidence low, jangan sebagai data terukur.",
+      "F-stasiun Sudirman untuk potensi/peta arus (~2.500/15mnt) beda dari lewat-frontage di file ini."
+    ]
+  },
+  "data": [
+    {
+      "id": "flow_1",
+      "station": "Manggarai",
+      "pintu": "A",
+      "keluar": 32,
+      "masuk": 44,
+      "total": 76,
+      "slot": null,
+      "source": "measured"
+    },
+    {
+      "id": "flow_2",
+      "station": "Manggarai",
+      "pintu": "B",
+      "keluar": 9,
+      "masuk": 18,
+      "total": 27,
+      "slot": null,
+      "source": "measured"
+    },
+    {
+      "id": "flow_3",
+      "station": "Sudirman",
+      "pintu": "atas",
+      "keluar": 27,
+      "masuk": 8,
+      "total": 35,
+      "slot": null,
+      "source": "measured"
+    }
+  ]
+}
