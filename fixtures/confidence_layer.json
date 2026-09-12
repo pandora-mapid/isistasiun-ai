@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "message": "Berhasil mengambil data confidence layer",
+  "data": [
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "zone_id": "manggarai-morning", "sample_count": 4, "is_thin_sample": true, "confidence_score": 0.45 },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "zone_id": "manggarai-evening", "sample_count": 4, "is_thin_sample": true, "confidence_score": 0.50 },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "zone_id": "sudirman-morning", "sample_count": 2, "is_thin_sample": true, "confidence_score": 0.15 },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "zone_id": "sudirman-evening", "sample_count": 4, "is_thin_sample": true, "confidence_score": 0.42 }
+  ]
+}

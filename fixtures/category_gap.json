@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "message": "Berhasil mengambil data category gap",
+  "data": [
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "category": "makanan_minuman", "demand_in_area": true, "available_in_station": true },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "category": "ritel_kemasan", "demand_in_area": true, "available_in_station": true },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "category": "apotek_kesehatan", "demand_in_area": true, "available_in_station": false },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "category": "jasa", "demand_in_area": false, "available_in_station": false },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "category": "lainnya", "demand_in_area": false, "available_in_station": false },
+
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "category": "makanan_minuman", "demand_in_area": true, "available_in_station": true },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "category": "ritel_kemasan", "demand_in_area": true, "available_in_station": true },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "category": "apotek_kesehatan", "demand_in_area": true, "available_in_station": false },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "category": "jasa", "demand_in_area": true, "available_in_station": false },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "category": "lainnya", "demand_in_area": false, "available_in_station": false }
+  ]
+}

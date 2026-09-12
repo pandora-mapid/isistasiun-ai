@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "message": "Berhasil mengambil data rent-flow index",
+  "data": [
+    { "plot_id": "manggarai-cfc", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 1577000000, "measured_flow": 15000, "index": 105133.33, "is_outlier": false, "status": "terisi" },
+    { "plot_id": "manggarai-familymart", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 250000000, "measured_flow": 15000, "index": 16666.67, "is_outlier": false, "status": "terisi" },
+    { "plot_id": "manggarai-indomaret-timur", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 200000000, "measured_flow": 15000, "index": 13333.33, "is_outlier": false, "status": "terisi" },
+    { "plot_id": "manggarai-toto-express", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 150000000, "measured_flow": 15000, "index": 10000.0, "is_outlier": false, "status": "terisi" },
+    { "plot_id": "manggarai-petak-05", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 594000000, "measured_flow": 15000, "index": 39600.0, "is_outlier": false, "status": "kosong" },
+    { "plot_id": "manggarai-petak-06", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 594000000, "measured_flow": 15000, "index": 39600.0, "is_outlier": false, "status": "kosong" },
+    { "plot_id": "manggarai-petak-07", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 594000000, "measured_flow": 15000, "index": 39600.0, "is_outlier": false, "status": "kosong" },
+    { "plot_id": "manggarai-petak-08", "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "offered_rent": 594000000, "measured_flow": 15000, "index": 39600.0, "is_outlier": false, "status": "kosong" }
+  ]
+}

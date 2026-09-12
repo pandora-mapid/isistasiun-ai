@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "message": "Berhasil mengambil data spending gap",
+  "data": [
+    {
+      "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001",
+      "station_name": "Manggarai",
+      "potential_low_p10": 900000,
+      "potential_high_p90": 1600000,
+      "captured_low_p10": 500000,
+      "captured_high_p90": 900000,
+      "gap_low_p10": 400000,
+      "gap_high_p90": 700000,
+      "time_slot": "morning",
+      "computed_at": "2026-08-20T00:00:00Z"
+    },
+    {
+      "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001",
+      "station_name": "Manggarai",
+      "potential_low_p10": 1500000,
+      "potential_high_p90": 2600000,
+      "captured_low_p10": 700000,
+      "captured_high_p90": 1200000,
+      "gap_low_p10": 800000,
+      "gap_high_p90": 1400000,
+      "time_slot": "evening",
+      "computed_at": "2026-08-20T00:00:00Z"
+    },
+    {
+      "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002",
+      "station_name": "Sudirman",
+      "potential_low_p10": 1100000,
+      "potential_high_p90": 2000000,
+      "captured_low_p10": 200000,
+      "captured_high_p90": 400000,
+      "gap_low_p10": 900000,
+      "gap_high_p90": 1600000,
+      "time_slot": "evening",
+      "computed_at": "2026-08-20T00:00:00Z"
+    }
+  ]
+}

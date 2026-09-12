@@ -1,0 +1,27 @@
+{
+  "_readme": "T4 lookup: keyword/brand (lowercase, matched as substring against a normalized gerai name) -> canonical category. Canonical set is fixed by the CHECK constraints in isistasiun-be migrations 003/004/005: makanan_minuman, ritel_kemasan, apotek_kesehatan, jasa, lainnya. Sources: (1) real gerai names from isi-stasiun-ai-integration.md Lampiran B/D (field survey, ground truth), (2) categories-summary.json kategori_inti under 'Makanan dan Minuman', 'Retail', 'Kesehatan' (SINI catchment vocabulary, for query-side term matching), (3) intent.go's categoryPhrases (kept in sync — see app/classify.py). Reviewed manually; not auto-generated at runtime.",
+
+  "makanan_minuman": [
+    "cfc", "roti o", "roti salman", "baso malang", "bolu kukus",
+    "restoran", "coffee shop", "brand coffee shop", "katering", "roti dan kue",
+    "makanan dan minuman", "minuman", "kuliner", "kafe", "cafe", "resto",
+    "warung", "warteg", "angkringan", "gerai kopi", "kedai"
+  ],
+  "ritel_kemasan": [
+    "indomaret", "alfamart", "familymart", "family mart", "lawson", "circle k",
+    "minimarket", "swalayan", "supermarket", "toko kelontong",
+    "toko makanan dan minuman", "convenience", "oleh-oleh", "hypermart"
+  ],
+  "apotek_kesehatan": [
+    "apotek", "puskesmas", "klinik", "klinik dan dokter gigi", "rumah sakit gigi",
+    "laboratorium medis", "praktik dokter spesialis", "farmasi", "dokter",
+    "rumah sakit", "kesehatan dan pengobatan"
+  ],
+  "jasa": [
+    "laundry", "barbershop", "salon", "layanan", "servis", "reparasi",
+    "toko optik", "home service", "jasa titip", "atm", "bank"
+  ],
+  "lainnya": [
+    "toto express", "properti ruang usaha", "properti toko kios"
+  ]
+}
