@@ -67,6 +67,21 @@ def test_copilot_query_category_gap_matches_documented_example():
     assert "jasa" in answer.lower()
 
 
+def test_copilot_query_event_potential_states_no_data_not_a_number():
+    # Event has no real data source (event_potential_scores is unseeded, no
+    # field survey, FE disables the layer). The AI must NOT state an activation
+    # score — it must say there's no data. Guards against re-introducing an
+    # invented event number.
+    resp = client.post(
+        "/copilot/query",
+        json={"query": "kapan ramai untuk bazar / pop-up di stasiun ini?", "station_id": SUDIRMAN},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert "event" in body["suggested_layers"]  # classification still works
+    assert "belum punya sumber data" in body["answer"].lower()
+
+
 def test_brief_endpoint_shape():
     resp = client.post("/brief", json={"station_id": SUDIRMAN, "time_slot": "evening"})
     assert resp.status_code == 200

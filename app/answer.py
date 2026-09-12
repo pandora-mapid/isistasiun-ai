@@ -122,12 +122,16 @@ def deterministic_answer(analysis: Analysis, context: dict) -> dict:
         )
 
     elif analysis.intent == "event_potential":
-        # No grounding source exists for this intent yet (no Go endpoint,
-        # no pipeline output) — say so plainly instead of falling through to
-        # the generic "unknown intent" message, which would misreport a
-        # successful classification as a failed one.
+        # No REAL grounding source exists: the event_potential_scores table has
+        # no seed, there's no field survey for event, and the FE disables the
+        # Event layer as "belum ada data". So we do NOT state activation scores
+        # (that would be inventing numbers — the one thing the verifier exists
+        # to stop). Say so plainly instead of falling through to the generic
+        # "unknown intent" message, which would misreport a successful
+        # classification as a failed one. Wire real grounding here only once
+        # event_potential_scores is actually populated.
         parts.append(
-            "Potensi event & aktivasi belum punya sumber data langsung di layanan ini; "
+            "Potensi event & aktivasi belum punya sumber data di layanan ini; "
             "lihat layer event di peta untuk status terkini."
         )
 

@@ -41,8 +41,26 @@ cd ../isistasiun-be && docker compose up -d ai
 ```
 
 `AI_BACKEND=stub` (the `.env.example` default) needs no key at all — verifier and
-eval logic are pure Python and fully testable offline, per the onboarding doc. Set
-`AI_BACKEND=gemini` + `GEMINI_API_KEY` to exercise the real model.
+eval logic are pure Python and fully testable offline, per the onboarding doc.
+
+## Backends (the seam — `app/seam.py`)
+
+`AI_BACKEND` swaps the generation seam. Every backend degrades to the
+deterministic, grounded fallback on any failure (missing key, network error, bad
+response), so the map is never blocked on the model.
+
+| `AI_BACKEND` | Uses | Needs | When |
+|---|---|---|---|
+| `stub` | canned output | nothing | tests/eval offline (default) |
+| `gemini` | Gemini API | `GEMINI_API_KEY` | if you already run Gemini elsewhere |
+| `groq` | Groq API (OpenAI-compatible) | `GROQ_API_KEY` | **plain VPS deploy, no GPU** |
+| `local` | Ollama/vLLM (OpenAI-compatible) | `LOCAL_BASE_URL`, `LOCAL_MODEL` | run an open model on the **workstation GPU** |
+
+`groq` and `local` share one OpenAI-compatible `/chat/completions` client over
+`httpx` (no extra dependency). For `local` with Ollama:
+`ollama serve` then `ollama pull qwen2.5:14b-instruct`; for vLLM set
+`LOCAL_BASE_URL=http://localhost:8000/v1`. Temperature is pinned to 0 on every
+backend for reproducibility.
 
 ## Test
 

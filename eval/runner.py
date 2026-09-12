@@ -14,10 +14,18 @@ Writes eval/report.json (machine-readable) and prints the markdown table.
 from __future__ import annotations
 
 import json
+import os
+import time
 from pathlib import Path
 
 from app.pipeline import run
 from app.verifier import verify
+
+# Optional pause between rows. A real backend (Groq free tier) rate-limits a
+# 23-row burst with 429s; every degraded row silently falls back to the
+# deterministic answer, so the hallucination number would grade the fallback,
+# not the model. Set EVAL_SLEEP_SECONDS to space calls out; leave 0 for stub.
+EVAL_SLEEP_SECONDS = float(os.getenv("EVAL_SLEEP_SECONDS", "0"))
 
 DATASET_PATH = Path(__file__).resolve().parent / "dataset.jsonl"
 REPORT_JSON_PATH = Path(__file__).resolve().parent / "report.json"
@@ -72,12 +80,20 @@ def _evaluate_row(row: dict) -> dict:
 
 def main() -> None:
     rows = _load_dataset()
-    results = [_evaluate_row(r) for r in rows]
+    results = []
+    for i, r in enumerate(rows):
+        results.append(_evaluate_row(r))
+        if EVAL_SLEEP_SECONDS and i < len(rows) - 1:
+            time.sleep(EVAL_SLEEP_SECONDS)
 
     n = len(results)
     intent_acc = sum(r["intent_correct"] for r in results) / n
     filter_acc = sum(r["filter_correct"] for r in results) / n
     hallucination_rate = sum(r["hallucinated"] for r in results) / n
+    # How much of the run actually exercised the model vs. degraded to the
+    # deterministic fallback — without this, a rate-limited run reads as a
+    # perfect model score when the model never answered.
+    model_used_rate = sum(not r["used_fallback"] for r in results) / n
 
     thin_rows = [r for r in results if r["hedge_correct"] is not None]
     hedge_compliance = sum(r["hedge_correct"] for r in thin_rows) / len(thin_rows) if thin_rows else None
@@ -92,6 +108,7 @@ def main() -> None:
         "hallucination_rate": hallucination_rate,
         "hedge_compliance": hedge_compliance,
         "out_of_scope_handling": oos_handling,
+        "model_used_rate": model_used_rate,
     }
 
     REPORT_JSON_PATH.write_text(
@@ -119,6 +136,7 @@ def _render_markdown(summary: dict, results: list[dict]) -> str:
         f"| Hallucination rate (target 0%) | {pct(summary['hallucination_rate'])} |",
         f"| Thin-sample hedge compliance | {pct(summary['hedge_compliance'])} |",
         f"| Out-of-scope handling | {pct(summary['out_of_scope_handling'])} |",
+        f"| Model actually used (vs fallback) | {pct(summary.get('model_used_rate'))} |",
         "",
         "| Query | Behavior | Intent | Hallucinated | Fallback used |",
         "|---|---|---|---|---|",
