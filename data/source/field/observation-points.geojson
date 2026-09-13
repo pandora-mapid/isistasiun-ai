@@ -288,6 +288,102 @@
           -6.210112908837247
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_19",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Lawson"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82327222163873,
+          -6.20234887272958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_20",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Bakso Malang St. Oasis"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82363378478033,
+          -6.202451402365541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_21",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Roti'O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8234943110981,
+          -6.202464736463842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_22",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Indomaret Point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.823402445441,
+          -6.202379408195747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_23",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Teh Kotjok"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82338501108275,
+          -6.202438738008624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_24",
+        "station": "Sudirman",
+        "type": "gerai",
+        "label": "Siliwangi Bolu Kukus Stasiun"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82363311541205,
+          -6.202406073281017
+        ]
+      }
     }
   ]
 }

@@ -153,6 +153,78 @@
       "label": "Pintu atas",
       "lat": -6.210112908837247,
       "lon": 106.8492864593219
+    },
+    {
+      "id": "pt_19",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Lawson",
+      "lat": -6.20234887272958,
+      "lon": 106.82327222163873,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "40–50 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
+    },
+    {
+      "id": "pt_20",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Bakso Malang St. Oasis",
+      "lat": -6.202451402365541,
+      "lon": 106.82363378478033,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "35–40 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
+    },
+    {
+      "id": "pt_21",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Roti'O",
+      "lat": -6.202464736463842,
+      "lon": 106.8234943110981,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "45-60 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
+    },
+    {
+      "id": "pt_22",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Indomaret Point",
+      "lat": -6.202379408195747,
+      "lon": 106.823402445441,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "45-60 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
+    },
+    {
+      "id": "pt_23",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Teh Kotjok",
+      "lat": -6.202438738008624,
+      "lon": 106.82338501108275,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "15-20 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
+    },
+    {
+      "id": "pt_24",
+      "station": "Sudirman",
+      "type": "gerai",
+      "label": "Siliwangi Bolu Kukus Stasiun",
+      "lat": -6.202406073281017,
+      "lon": 106.82363311541205,
+      "status_aset": "Gerai Beroperasi",
+      "luas": "30-40 m²",
+      "prediksi_toko_cocok": "Ritel",
+      "tingkat_kesesuaian": "Gerai Beroperasi"
     }
   ]
 }
