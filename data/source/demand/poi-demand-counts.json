@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "what": "Real POI counts within 800 m of each station, per category — evidence for category_gap.demand_in_area/demand_count.",
+    "radius_m": 800,
+    "source": "MAPID Data Premium (POI Data Bumi/BPS) imported to GEO MAPID project 6a7c39a75c1a774d47489a8b",
+    "layers": {
+      "makanan_minuman": ["MINUMAN Jakpus 2025", "ROTI & KUE Jakpus 2026", "MAKANAN & MINUMAN Jaksel 2025", "MINUMAN Jaksel 2025", "RESTORAN Jaksel 2025", "BRAND COFFEE SHOP Jaksel 2026"],
+      "ritel_kemasan": ["MINIMARKET Jakpus 2025", "MINIMARKET Jaksel 2025"],
+      "apotek_kesehatan": ["APOTEK Jakpus 2025", "APOTEK Jaksel 2025"],
+      "jasa": ["LAYANAN ATAU JASA Jakpus 2025", "LAYANAN ATAU JASA Jaksel 2025"]
+    },
+    "method": "get_layer paginated (skip/limit 200); haversine <= 800 m from station; deduped by NAMA+coord.",
+    "generated": "2026-09-13",
+    "caveat": "Total POI scanned ~13,000 across Jakpus+Jaksel admin layers. available_in_station comes from field survey (gerai inside), not from these POI."
+  },
+  "stations": {
+    "Manggarai": { "makanan_minuman": 21, "ritel_kemasan": 4, "apotek_kesehatan": 13, "jasa": 55 },
+    "Sudirman":  { "makanan_minuman": 30, "ritel_kemasan": 20, "apotek_kesehatan": 4, "jasa": 71 }
+  }
+}
