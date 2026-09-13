@@ -130,6 +130,21 @@ def _flow_summary(station_id: str | None) -> dict[str, Any]:
     }
 
 
+def _compare_summary() -> dict[str, Any]:
+    """Groups spending-gap across ALL stations for the compare intent — the
+    copilot gets station_id=None, so a comparison spans every station. Shape:
+    compare.stations.<station_id>.slots.<slot>.gap.{p10,p90}, which the
+    verifier's field_ref walk (get_field) reaches directly."""
+    stations: dict[str, Any] = {}
+    for row in fetch_spending_gap(None):
+        sid = row["station_id"]
+        entry = stations.setdefault(sid, {"name": row.get("station_name", sid), "slots": {}})
+        entry["slots"][row["time_slot"]] = {
+            "gap": {"p10": row["gap_low_p10"], "p90": row["gap_high_p90"]},
+        }
+    return {"stations": stations}
+
+
 def build_context(analysis: "Analysis") -> dict[str, Any]:  # noqa: F821 - app.classify.Analysis, avoids import cycle
     """Minimal JSON slice for the prompt + the source-of-truth `field_ref`
     targets the verifier checks claims against. Only fetches what the
@@ -161,6 +176,8 @@ def build_context(analysis: "Analysis") -> dict[str, Any]:  # noqa: F821 - app.c
         context["confidence"] = _confidence_summary(station_id)
     if analysis.intent == "rent_flow_index":
         context["rent_flow"] = {r["plot_id"]: r for r in fetch_rent_flow_index(station_id)}
+    if analysis.intent == "compare":
+        context["compare"] = _compare_summary()
 
     # Confidence is cheap and cross-cuts every intent (thin-sample hedging
     # applies regardless of what was asked), so always include it.

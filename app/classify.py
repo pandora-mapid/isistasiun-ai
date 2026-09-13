@@ -24,6 +24,7 @@ INTENT_RENT_FLOW = "rent_flow_index"
 INTENT_EVENT_POTENTIAL = "event_potential"
 INTENT_CONFIDENCE = "confidence"
 INTENT_FLOW = "flow"
+INTENT_COMPARE = "compare"
 INTENT_UNKNOWN = "unknown"
 
 LAYER_GAP = "gap"
@@ -51,6 +52,15 @@ SLOT_PHRASES: list[tuple[str, list[str]]] = [
 
 # (intent, phrases, layers, endpoint) — order matters, see Classify() below.
 INTENT_PHRASES: list[tuple[str, list[str], list[str], str]] = [
+    (
+        # Compare must sit ABOVE spending_gap: "bandingkan kesenjangan …" is a
+        # comparison, not a single-station gap. Grounds on every station's
+        # spending-gap (see grounding._compare_summary), station_id ignored.
+        INTENT_COMPARE,
+        ["banding", "dibanding", "versus", " vs ", "kedua stasiun", "kedua simpul", "antar stasiun", "antar simpul", "mana yang lebih", "manggarai dan sudirman", "sudirman dan manggarai"],
+        [LAYER_GAP, LAYER_POTENSI],
+        "/api/v1/analytics/spending-gap",
+    ),
     (
         INTENT_CATEGORY_GAP,
         ["kategori", "usaha apa", "gerai apa", "jenis usaha", "belum ada", "kategori hilang", "yang kurang", "cocok dibuka", "peluang usaha", "tenant"],

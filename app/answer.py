@@ -142,6 +142,42 @@ def deterministic_answer(analysis: Analysis, context: dict) -> dict:
         else:
             parts.append("Semua zona pada stasiun ini memiliki sampel yang cukup untuk diestimasi.")
 
+    elif analysis.intent == "compare" and context.get("compare", {}).get("stations"):
+        # One grounded gap range per station, at the asked slot if the station
+        # has it, else that station's biggest-gap slot. Each figure carries a
+        # claim so the number-sweep verifies it; the "which is larger" reading
+        # is left to the prose (no invented number).
+        stations = context["compare"]["stations"]
+        lines: list[str] = []
+        for sid, sdata in stations.items():
+            slots = sdata.get("slots", {})
+            if not slots:
+                continue
+            slot = (
+                analysis.time_slot
+                if analysis.time_slot in slots
+                else max(slots, key=lambda s: slots[s]["gap"]["p90"])
+            )
+            gap = slots[slot]["gap"]
+            lines.append(
+                f"{sdata['name']}: kesenjangan slot {slot} "
+                f"{format_idr_range(gap['p10'], gap['p90'])}"
+            )
+            claims.extend(
+                [
+                    {"value": gap["p10"], "unit": "IDR", "field_ref": f"compare.stations.{sid}.slots.{slot}.gap.p10"},
+                    {"value": gap["p90"], "unit": "IDR", "field_ref": f"compare.stations.{sid}.slots.{slot}.gap.p90"},
+                ]
+            )
+        if lines:
+            parts.append(
+                "Perbandingan kesenjangan belanja — " + "; ".join(lines) + "."
+            )
+        else:
+            parts.append(
+                "Belum ada data kesenjangan untuk dibandingkan antar stasiun."
+            )
+
     elif analysis.intent == "rent_flow_index" and context.get("rent_flow"):
         parts.append(
             "Indeks sewa per arus tersedia per petak — sebutkan nama petak/gerai spesifik untuk detail angkanya."

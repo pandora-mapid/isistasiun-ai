@@ -114,4 +114,6 @@ def _has_groundable_data(context: dict, analysis: Analysis) -> bool:
         return True
     if analysis.intent == "confidence" and context.get("confidence", {}).get("zones"):
         return True
+    if analysis.intent == "compare" and context.get("compare", {}).get("stations"):
+        return True
     return False

@@ -95,6 +95,24 @@ def test_copilot_query_flow_names_busiest_gate():
     assert "76" in answer
 
 
+def test_copilot_query_compare_grounds_both_stations():
+    # "bandingkan Manggarai dengan Sudirman" is a featured suggested question in
+    # the FE. It must NOT fall to the "belum jelas" unknown answer — it maps to
+    # the compare intent and states a grounded gap per station (both share the
+    # evening slot in fixtures: Manggarai 0,8-1,4 jt; Sudirman 0,9-1,6 jt).
+    resp = client.post("/copilot/query", json={"query": "bandingkan Manggarai dengan Sudirman"})
+    assert resp.status_code == 200
+    body = resp.json()
+    answer = body["answer"]
+    assert "Perbandingan" in answer
+    assert "Manggarai" in answer and "Sudirman" in answer
+    assert "belum jelas" not in answer.lower()
+    # grounded evening ranges appear verbatim
+    assert "0,8" in answer and "1,4" in answer
+    assert "0,9" in answer and "1,6" in answer
+    assert "gap" in body["suggested_layers"]
+
+
 def test_brief_endpoint_shape():
     resp = client.post("/brief", json={"station_id": SUDIRMAN, "time_slot": "evening"})
     assert resp.status_code == 200
