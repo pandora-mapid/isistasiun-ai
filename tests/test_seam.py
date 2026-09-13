@@ -78,6 +78,7 @@ def test_local_no_auth_header_and_reachable(monkeypatch):
 
     def fake_post(url, json, headers, timeout):
         captured["headers"] = headers
+        captured["json"] = json
         return _FakeResponse(_chat_payload("plain text answer"))
 
     monkeypatch.setattr(seam.httpx, "post", fake_post)
@@ -85,7 +86,7 @@ def test_local_no_auth_header_and_reachable(monkeypatch):
     out = seam.generate("hi", json_mode=False)
     assert out == "plain text answer"
     assert "Authorization" not in captured["headers"]  # local server needs no key
-    assert "response_format" not in captured  # not requested when json_mode=False
+    assert "response_format" not in captured["json"]  # not requested when json_mode=False
 
 
 def test_network_error_degrades_to_none(monkeypatch):
@@ -134,3 +135,32 @@ def test_chain_all_fail_returns_none(monkeypatch):
         seam.httpx, "post", lambda *a, **k: (_ for _ in ()).throw(httpx.ConnectError("down"))
     )
     assert seam.generate("hi", json_mode=True) is None
+
+
+def test_chain_empty_response_treated_as_failure(monkeypatch):
+    # local answers but with empty content -> that counts as a failure, not a
+    # success, so the chain must still move on to groq.
+    _with_settings(monkeypatch, ai_backends="local,groq", groq_api_key="sk-real-key")
+
+    def fake_post(url, json, headers, timeout):
+        if "11434" in url:
+            return _FakeResponse(_chat_payload(""))
+        return _FakeResponse(_chat_payload('{"answer_text": "from groq", "claims": []}'))
+
+    monkeypatch.setattr(seam.httpx, "post", fake_post)
+    assert seam.generate("hi", json_mode=True) == '{"answer_text": "from groq", "claims": []}'
+
+
+def test_ai_backends_takes_precedence_over_ai_backend(monkeypatch):
+    # AI_BACKEND alone would resolve to "stub" (canned text); AI_BACKENDS must
+    # win when both are set, so the chain hits groq instead.
+    _with_settings(
+        monkeypatch, ai_backend="stub", ai_backends="groq", groq_api_key="sk-real-key"
+    )
+
+    monkeypatch.setattr(
+        seam.httpx,
+        "post",
+        lambda *a, **k: _FakeResponse(_chat_payload('{"answer_text": "from groq", "claims": []}')),
+    )
+    assert seam.generate("hi", json_mode=True) == '{"answer_text": "from groq", "claims": []}'
