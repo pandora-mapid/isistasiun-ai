@@ -55,13 +55,13 @@
         "id": "pt_4",
         "station": "Sudirman",
         "type": "entrance",
-        "label": "Pintu atas"
+        "label": "Pintu bawah utama"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.8233293,
-          -6.2022544
+          106.82318166742444,
+          -6.202267977330985
         ]
       }
     },
@@ -71,13 +71,13 @@
         "id": "pt_5",
         "station": "Sudirman",
         "type": "entrance",
-        "label": "Pintu C1"
+        "label": "Pintu bawah belakang"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.8246516,
-          -6.2027007
+          106.8246451141926,
+          -6.20262664463407
         ]
       }
     },
@@ -238,6 +238,54 @@
         "coordinates": [
           106.8510737,
           -6.2100542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_16",
+        "station": "Sudirman",
+        "type": "entrance",
+        "label": "Pintu atas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.82357353948973,
+          -6.202413019184441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_17",
+        "station": "Manggarai",
+        "type": "entrance",
+        "label": "Pintu bawah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.85021581782942,
+          -6.209898745923517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pt_18",
+        "station": "Manggarai",
+        "type": "entrance",
+        "label": "Pintu atas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8492864593219,
+          -6.210112908837247
         ]
       }
     }
