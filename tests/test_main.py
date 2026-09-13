@@ -84,14 +84,15 @@ def test_copilot_query_event_potential_states_no_data_not_a_number():
 
 def test_copilot_query_flow_names_busiest_gate():
     # "pintu mana paling ramai" must name the busiest gate, not fall back to a
-    # spending-gap answer. Manggarai busiest = Pintu A (76).
+    # spending-gap answer. Manggarai busiest = Pintu Bawah (fixture code A,
+    # public/canonical label Pintu Bawah), 76 people.
     resp = client.post(
         "/copilot/query",
         json={"query": "pintu mana paling ramai di manggarai?", "station_id": MANGGARAI},
     )
     assert resp.status_code == 200
     answer = resp.json()["answer"].lower()
-    assert "pintu a" in answer
+    assert "pintu bawah" in answer
     assert "76" in answer
 
 

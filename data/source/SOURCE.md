@@ -8,7 +8,8 @@ Data lapangan & sewa Manggarai/Sudirman yang **mendasari** `fixtures/`. Ditaruh 
 |---|---|
 | `field/entry-conversion.json` | Per gerai per blok: `lewat`, `masuk`, `beli_est`(=0,95×masuk), `E`, `slot`, `source`. |
 | `field/flow-observations.json` | Arus gerbang (Manggarai A/B, Sudirman atas). |
-| `field/observation-points.json` / `.geojson` | Titik pintu/gerai/ruko/potensi + koordinat. |
+| `field/observation-points.json` | Sumber kanonik titik pintu/gerai/ruko/potensi + koordinat. |
+| `field/observation-points.geojson` | Turunan untuk peta; buat ulang dengan `python scripts/sync_observation_points.py`. |
 | `rent/manggarai-instation.json` | Sewa in-station Manggarai (Space by KAI): tenant, luas, Rp/thn, koordinat, kosong/terisi. |
 | `rent/sekitar.json` | Sewa pasar sekitar (99.co), kedua stasiun incl Sudirman. |
 
