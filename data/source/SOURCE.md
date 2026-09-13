@@ -35,3 +35,14 @@ Data lapangan & sewa Manggarai/Sudirman yang **mendasari** `fixtures/`. Ditaruh 
 - Sudirman in-station tak ada di API KAI (verified by-coordinate) → Sudirman rent hanya dari `rent/sekitar.json` (pasar).
 - `sekitar.json` belum masuk `rent_flow_index` (butuh keputusan denominator arus untuk titik pasar) — tersedia di sini bila mau dipakai.
 - Regenerasi field data: `scripts/build_field_seed.js` (di root workspace `mapid/`); rent KAI via `space-api.kai.id/api/v1/komersialasetram`.
+
+## Demand kategori (POI real) → `category_gap`
+
+`demand/poi-demand-counts.json` = jumlah POI nyata dalam **800 m** tiap stasiun per kategori, ditarik dari **MAPID Data Premium** (POI Data Bumi/BPS) yang diimpor ke project GEO MAPID `6a7c39a75c1a774d47489a8b` (~13.000 POI Jakpus+Jaksel dipindai). Ini yang mengubah `category_gap.demand_in_area` dari asumsi jadi bukti, dan mengisi `demand_count` di `fixtures/category_gap.json`.
+
+| Stasiun | makanan_minuman | ritel_kemasan | apotek_kesehatan | jasa |
+|---|---|---|---|---|
+| Manggarai | 21 | 4 | 13 | 55 |
+| Sudirman | 30 | 20 | 4 | 71 |
+
+`available_in_station` tetap dari survei lapangan (gerai di dalam), bukan dari POI ini → apotek & jasa = **hilang** (ada permintaan, 0 di dalam) di kedua stasiun. Method: `get_layer` paginated (skip/limit 200), haversine ≤ 800 m, dedup NAMA+koordinat.

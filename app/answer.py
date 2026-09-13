@@ -99,9 +99,25 @@ def deterministic_answer(analysis: Analysis, context: dict) -> dict:
 
     elif analysis.intent == "category_gap" and context.get("category_gap"):
         missing = context["category_gap"]["missing"]
+        by_category = context["category_gap"].get("by_category", {})
         if missing:
-            labels = " dan ".join(category_label(c) for c in missing)
-            parts.append(f"Kategori dengan permintaan terbaca tapi belum tersedia di stasiun: {labels}.")
+            # Cite the real POI-in-catchment count (demand_count) when present,
+            # emitting a grounded claim for it so the number is verifiable.
+            segments: list[str] = []
+            for c in missing:
+                count = by_category.get(c, {}).get("demand_count")
+                label = category_label(c)
+                if count:
+                    segments.append(f"{label} ({count} POI dalam 800 m)")
+                    claims.append(
+                        {"value": count, "unit": "count", "field_ref": f"category_gap.by_category.{c}.demand_count"}
+                    )
+                else:
+                    segments.append(label)
+            parts.append(
+                "Kategori dengan permintaan terbaca di sekitar (POI dalam 800 m) tapi belum tersedia "
+                "di dalam stasiun: " + " dan ".join(segments) + "."
+            )
         else:
             parts.append("Tidak ada kategori yang teridentifikasi hilang untuk stasiun ini.")
 
