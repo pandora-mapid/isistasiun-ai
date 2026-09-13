@@ -2,8 +2,8 @@
   "success": true,
   "message": "Berhasil mengambil data arus gerbang",
   "data": [
-    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "gate": "Pintu A", "masuk": 44, "keluar": 32, "total": 76 },
-    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "gate": "Pintu B", "masuk": 18, "keluar": 9, "total": 27 },
-    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "gate": "Pintu Atas", "masuk": 8, "keluar": 27, "total": 35 }
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "gate": "Pintu Bawah", "masuk": 44, "keluar": 32, "total": 76 },
+    { "station_id": "a10a6cf2-0001-4f2b-9c1a-000000000001", "gate": "Pintu Atas", "masuk": 18, "keluar": 9, "total": 27 },
+    { "station_id": "a10a6cf2-0002-4f2b-9c1a-000000000002", "gate": "Pintu Bawah Utama", "masuk": 8, "keluar": 27, "total": 35 }
   ]
 }

@@ -6,7 +6,8 @@
       "gerai",
       "ruko",
       "potensi_toko"
-    ]
+    ],
+    "koreksi_2026-09-13": "Koordinat entrance lama untuk Sudirman salah (pt_4 dulu berlabel 'Pintu atas' tapi koordinatnya justru paling dekat ke pintu bawah utama yang sebenarnya). Dikoreksi berdasarkan pengukuran ulang tim: pt_4 -> 'Pintu bawah utama', pt_5 ('Pintu C1') -> 'Pintu bawah belakang', ditambah pt_16 untuk pintu atas Sudirman yang sebenarnya (sebelumnya tidak tercatat). Manggarai sebelumnya tidak punya satu pun koordinat entrance asli (hanya gerai/ruko/potensi_toko) - ditambahkan pt_17 dan pt_18 dari pengukuran ulang."
   },
   "data": [
     {
@@ -37,17 +38,17 @@
       "id": "pt_4",
       "station": "Sudirman",
       "type": "entrance",
-      "label": "Pintu atas",
-      "lat": -6.2022544,
-      "lon": 106.8233293
+      "label": "Pintu bawah utama",
+      "lat": -6.202267977330985,
+      "lon": 106.82318166742444
     },
     {
       "id": "pt_5",
       "station": "Sudirman",
       "type": "entrance",
-      "label": "Pintu C1",
-      "lat": -6.2027007,
-      "lon": 106.8246516
+      "label": "Pintu bawah belakang",
+      "lat": -6.20262664463407,
+      "lon": 106.8246451141926
     },
     {
       "id": "pt_6",
@@ -128,6 +129,30 @@
       "label": "Ruko depan 3",
       "lat": -6.2100542,
       "lon": 106.8510737
+    },
+    {
+      "id": "pt_16",
+      "station": "Sudirman",
+      "type": "entrance",
+      "label": "Pintu atas",
+      "lat": -6.202413019184441,
+      "lon": 106.82357353948973
+    },
+    {
+      "id": "pt_17",
+      "station": "Manggarai",
+      "type": "entrance",
+      "label": "Pintu bawah",
+      "lat": -6.209898745923517,
+      "lon": 106.85021581782942
+    },
+    {
+      "id": "pt_18",
+      "station": "Manggarai",
+      "type": "entrance",
+      "label": "Pintu atas",
+      "lat": -6.210112908837247,
+      "lon": 106.8492864593219
     }
   ]
 }

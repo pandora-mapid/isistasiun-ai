@@ -11,6 +11,7 @@
       "latitude": -6.2102,
       "longitude": 106.8502,
       "entrance_count": 2,
+      "_koreksi_2026-09-13": "Sebelumnya nilai ini sudah 2 tapi tidak ada baris entrance nyata sama sekali. Sekarang 2 pintu (Bawah, Atas) sudah tercatat di observation-points.json (pt_17, pt_18) dan station_entrances seed.",
       "created_at": "2026-01-01T00:00:00Z",
       "updated_at": "2026-01-01T00:00:00Z"
     },
@@ -22,7 +23,8 @@
       "area_type": "office",
       "latitude": -6.2024,
       "longitude": 106.8235,
-      "entrance_count": 1,
+      "entrance_count": 3,
+      "_koreksi_2026-09-13": "Sebelumnya 1 (hanya 'Pintu Atas', koordinatnya salah). Sekarang 3 pintu nyata: Bawah Utama, Bawah Belakang, Atas — lihat observation-points.json pt_4/pt_5/pt_16.",
       "created_at": "2026-01-01T00:00:00Z",
       "updated_at": "2026-01-01T00:00:00Z"
     }
