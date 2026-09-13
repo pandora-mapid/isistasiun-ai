@@ -71,7 +71,17 @@ def deterministic_answer(analysis: Analysis, context: dict) -> dict:
     # confidence layer's is_thin_sample is a separate caveat surfaced only
     # for confidence-intent answers, not a blanket gate on every number (see
     # verifier._is_thin's docstring for why).
-    if analysis.intent in ("spending_gap", "flow") and context.get("spending_gap"):
+    if analysis.intent == "flow" and context.get("flow", {}).get("busiest"):
+        b = context["flow"]["busiest"]
+        # Gate counts are small integers the verifier's number sweep ignores by
+        # design (not "figure-shaped"), so no claims are needed — the number is
+        # read straight from grounded context (correct by construction).
+        parts.append(
+            f"Pintu paling ramai: {b['gate']} — {b['total']} orang "
+            f"({b['masuk']} masuk, {b['keluar']} keluar) pada jendela survei."
+        )
+
+    elif analysis.intent in ("spending_gap", "flow") and context.get("spending_gap"):
         slots = context["spending_gap"]
         if analysis.time_slot:
             # A specific slot was asked for — if it's not in the data (e.g.

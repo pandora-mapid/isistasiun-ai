@@ -106,9 +106,26 @@ def _category_gap_summary(station_id: str | None) -> dict[str, Any]:
     return {"missing": missing, "available": available, "by_category": {r["category"]: r for r in rows}}
 
 
+def fetch_flow(station_id: str | None = None) -> list[dict[str, Any]]:
+    # No BE gate-flow endpoint exists (arus is survey-only); fixtures are the
+    # source, consistent with the deployed AI grounding on fixtures.
+    rows = _load_fixture("flow.json")
+    if station_id:
+        rows = [r for r in rows if r["station_id"] == station_id]
+    return rows
+
+
 def _confidence_summary(station_id: str | None) -> dict[str, Any]:
     rows = fetch_confidence(station_id)
     return {"zones": rows, "any_thin_sample": any(r["is_thin_sample"] for r in rows)}
+
+
+def _flow_summary(station_id: str | None) -> dict[str, Any]:
+    rows = fetch_flow(station_id)
+    return {
+        "gates": {r["gate"]: r for r in rows},
+        "busiest": max(rows, key=lambda r: r["total"]) if rows else None,
+    }
 
 
 def build_context(analysis: "Analysis") -> dict[str, Any]:  # noqa: F821 - app.classify.Analysis, avoids import cycle
@@ -134,6 +151,8 @@ def build_context(analysis: "Analysis") -> dict[str, Any]:  # noqa: F821 - app.c
     # station happened to be in context.
     if analysis.intent in ("spending_gap", "flow"):
         context["spending_gap"] = _spending_gap_by_slot(station_id)
+    if analysis.intent == "flow":
+        context["flow"] = _flow_summary(station_id)
     if analysis.intent == "category_gap":
         context["category_gap"] = _category_gap_summary(station_id)
     if analysis.intent == "confidence":

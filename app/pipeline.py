@@ -20,6 +20,24 @@ from app.verifier import verify
 logger = logging.getLogger(__name__)
 
 
+def _parse_json_object(raw: str) -> dict | None:
+    """Tolerant JSON extraction. Some models wrap the object in ```json fences
+    or add stray prose around it; take the outermost {...} span and parse that
+    so a well-formed answer isn't thrown away over formatting. Returns None if
+    nothing parseable is found."""
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+    start, end = raw.find("{"), raw.rfind("}")
+    if start != -1 and end > start:
+        try:
+            return json.loads(raw[start : end + 1])
+        except json.JSONDecodeError:
+            return None
+    return None
+
+
 def _try_generate(query: str, context: dict, *, retry_note: str | None = None) -> dict | None:
     prompt = build_prompt(query, context)
     if retry_note:
@@ -28,9 +46,8 @@ def _try_generate(query: str, context: dict, *, retry_note: str | None = None) -
     raw = seam.generate(prompt, json_mode=True)
     if not raw:
         return None
-    try:
-        parsed = json.loads(raw)
-    except json.JSONDecodeError:
+    parsed = _parse_json_object(raw)
+    if parsed is None:
         logger.warning("model returned non-JSON output; degrading")
         return None
     if not isinstance(parsed, dict) or "answer_text" not in parsed:
@@ -89,6 +106,8 @@ def answer_query(query: str, station_id: str = "") -> tuple[str, list[str], dict
 
 
 def _has_groundable_data(context: dict, analysis: Analysis) -> bool:
+    if analysis.intent == "flow" and context.get("flow", {}).get("busiest"):
+        return True
     if analysis.intent in ("spending_gap", "flow") and context.get("spending_gap"):
         return True
     if analysis.intent == "category_gap" and context.get("category_gap", {}).get("missing") is not None:

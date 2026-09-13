@@ -6,14 +6,55 @@ coordination (§5 there: "mengubah copilot/dto.go -> koordinasi dulu").
 
 from __future__ import annotations
 
+import logging
+import threading
+from contextlib import asynccontextmanager
+
+import httpx
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from app.brief import build_brief
+from app.config import settings
 from app.explain import explain_entity
 from app.pipeline import answer_query
 
-app = FastAPI(title="isistasiun-ai", version="0.1.0")
+logger = logging.getLogger(__name__)
+
+
+def _warm_local_model() -> None:
+    """Best-effort: preload + pin the local model so the first real query isn't
+    a cold start. Fires only when 'local' is in the backend chain, in a daemon
+    thread so startup never blocks, and swallows all errors (Ollama may not be
+    up yet). Uses Ollama's native /api/generate with keep_alive=-1 (never
+    unload). For durable pinning across normal requests, also set the env var
+    OLLAMA_KEEP_ALIVE=-1 on the Ollama service."""
+    chain = [b.strip().lower() for b in (settings.ai_backends or settings.ai_backend).split(",") if b.strip()]
+    if "local" not in chain:
+        return
+
+    def _warm() -> None:
+        base = settings.local_base_url.rsplit("/v1", 1)[0]  # http://localhost:11434/v1 -> .../11434
+        try:
+            httpx.post(
+                f"{base}/api/generate",
+                json={"model": settings.local_model, "prompt": "ok", "stream": False, "keep_alive": -1},
+                timeout=180,
+            )
+            logger.info("local model warmed and pinned (keep_alive=-1)")
+        except Exception:
+            logger.warning("local model warmup skipped (server not ready)")
+
+    threading.Thread(target=_warm, daemon=True).start()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    _warm_local_model()
+    yield
+
+
+app = FastAPI(title="isistasiun-ai", version="0.1.0", lifespan=lifespan)
 
 
 @app.get("/health")
