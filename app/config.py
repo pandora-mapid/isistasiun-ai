@@ -40,12 +40,20 @@ class Settings:
     # api_key is usually unneeded locally (Ollama ignores it; some vLLM setups
     # want a non-empty dummy).
     local_base_url: str = os.getenv("LOCAL_BASE_URL", "http://localhost:11434/v1")
-    local_model: str = os.getenv("LOCAL_MODEL", "qwen2.5:14b")
+    # gemma3:4b is the chosen local model: 0% hallucination on the eval, clean
+    # prose without the repetition qwen2.5:14b showed, and fast. Overridable via
+    # LOCAL_MODEL, but the default must match the deployed decision so a fresh
+    # deploy without an .env doesn't silently warm/serve the rejected model.
+    local_model: str = os.getenv("LOCAL_MODEL", "gemma3:4b")
     local_api_key: str = os.getenv("LOCAL_API_KEY", "")
 
-    # Timeout for a single LLM generation call. Separate from (and larger than)
-    # go_api_timeout_seconds: model latency is much higher than an analytics read.
-    ai_request_timeout_seconds: float = float(os.getenv("AI_REQUEST_TIMEOUT_SECONDS", "30"))
+    # Timeout for a single LLM generation call. Larger than go_api_timeout_seconds
+    # (model latency >> an analytics read), but deliberately kept well under the
+    # BE's AI_SERVICE_TIMEOUT_SECONDS (30s): the pipeline may make two model
+    # calls (generate + one verify-retry), so 2×12s + overhead still fits inside
+    # BE's window, letting a slow model degrade to our own grounded reply instead
+    # of BE timing out and dropping it. gemma3:4b warm answers in ~5s.
+    ai_request_timeout_seconds: float = float(os.getenv("AI_REQUEST_TIMEOUT_SECONDS", "12"))
 
     go_api_base_url: str = os.getenv("GO_API_BASE_URL", "http://localhost:8080/api/v1")
     go_api_timeout_seconds: float = float(os.getenv("GO_API_TIMEOUT_SECONDS", "5"))

@@ -107,8 +107,10 @@ def _category_gap_summary(station_id: str | None) -> dict[str, Any]:
 
 
 def fetch_flow(station_id: str | None = None) -> list[dict[str, Any]]:
-    # No BE gate-flow endpoint exists (arus is survey-only); fixtures are the
-    # source, consistent with the deployed AI grounding on fixtures.
+    # BE's only gate-flow data is GET /survey/flow-observations, which sits
+    # behind X-Service-Key (router.go mounts serviceKey on /survey) — the
+    # public grounding has no such key, and the table is unseeded anyway. So
+    # fixtures are the source, consistent with the rest of AI grounding.
     rows = _load_fixture("flow.json")
     if station_id:
         rows = [r for r in rows if r["station_id"] == station_id]
